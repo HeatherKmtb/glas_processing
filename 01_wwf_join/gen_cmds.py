@@ -2,7 +2,7 @@ import logging
 import os
 import glob
 import rsgislib
-import rsgislib.vectorattrs
+
 
 from pbprocesstools.pbpt_q_process import PBPTGenQProcessToolCmds
 
