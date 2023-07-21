@@ -25,7 +25,7 @@ class GenCmds(PBPTGenQProcessToolCmds):
                 c_dict = dict()
                 c_dict['glas_file'] = glas_file
                 c_dict['out_file'] = out_file
-                c_dict['wwf'] = 
+                c_dict['wwf'] = "/bigdata/cci_biomass_data/WCM/layers/wwf/wwf_terr_ecos.shp"
                 self.params.append(c_dict)
 
     def run_gen_commands(self):
