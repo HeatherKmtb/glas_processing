@@ -32,7 +32,7 @@ class GenCmds(PBPTGenQProcessToolCmds):
         # Could Pass info to gen_command_info function
         # (e.g., input / output directories)
         self.gen_command_info(
-            glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/grid_files_renamed/grid",
+            glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/grid_files_renamed/grid/*.shp",
             out_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/renamed_07.23")
 
         self.pop_params_db()
