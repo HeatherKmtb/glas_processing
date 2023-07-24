@@ -27,6 +27,7 @@ class GenCmds(PBPTGenQProcessToolCmds):
             if (not os.path.exists(out_csv_file)):
                 c_dict = dict()
                 c_dict['glas_file'] = glas_file
+                c_dict['out_csv_file'] = out_csv_file
                 c_dict['out_fig_dir'] = "/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs/"
                 c_dict['basename'] = basename
                 self.params.append(c_dict)
