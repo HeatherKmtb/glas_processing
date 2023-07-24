@@ -19,12 +19,13 @@ class GenCmds(PBPTGenQProcessToolCmds):
 
         for glas_file in glas_files:
             basename = self.get_file_basename(glas_file)
-            out_file = os.path.join(kwargs['out_dir'], f'{basename}.gpkg')            
+            out_file = os.path.join(kwargs['out_dir'], f'{basename}.gpkg')
+            out_dir = os.path(kwargs['out_dir'])                        
 
             if (not os.path.exists(out_file)):
                 c_dict = dict()
                 c_dict['glas_file'] = glas_file
-                c_dict['out_file'] = out_file
+                c_dict['out_dir'] = out_dir
                 c_dict['basename'] = basename
                 self.params.append(c_dict)
 
@@ -32,8 +33,8 @@ class GenCmds(PBPTGenQProcessToolCmds):
         # Could Pass info to gen_command_info function
         # (e.g., input / output directories)
         self.gen_command_info(
-            glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/grid_files_renamed/grid/*.shp",
-            out_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/00-reprojected_07.23")
+            glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/eco/renamed_07.23/*.gpkg",
+            out_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/wwf_grid")
 
         self.pop_params_db()
 

@@ -1,7 +1,7 @@
 import logging
 import os
 import geopandas
-import rsgislib.vectorutils
+import numpy as np
 
 
 from pbprocesstools.pbpt_q_process import PBPTQProcessTool
@@ -15,18 +15,26 @@ class ProcessCmd(PBPTQProcessTool):
 
     def do_processing(self, **kwargs):
         file = self.params['glas_file']
-        out_file = self.params['out_file']
-        basename = self.params['basename']
-
+        out_dir = self.params['out_dir']
+        basename = self.params["basename"]
         
-        #rsgislib.vectorutils.reproj_vec_lyr_gp(vec_file = file, vec_lyr = basename, 
-                  #  epsg_code = 4326, out_vec_file = out_file, out_vec_lyr = basename, 
-                   # out_format = 'GPKG')
+        colNms=['i_h100','i_cd','doy','i_wflen','i_acqdate','b1','vcf','ECO_NAME_lefty','ECO_ID_lefty','BIOME_lefty','geometry']               
+        
+        gdf = geopandas.read_file(file)
+        gdf2 = gdf.astype({'ECO_ID':'int32'})
+        ecoNames = list(np.unique(gdf2['ECO_ID']))#get list of unique ecoregions    
+        
+        for eco in ecoNames:
+            #create new df with just columns I want
+            gdf3 = geopandas.GeoDataFrame(gdf2, columns=colNms)
+            ID = str(eco)
+            df_eco = gdf2.loc[gdf3['ECO_ID']==eco, colNms]
+            df_eco.to_file(out_dir + '/{}_eco_{}.gpkg'.format(basename, ID))    
         
 
     def required_fields(self, **kwargs):
         # Return a list of the required fields which will be checked
-        return ["glas_file", "out_file", "basename"]
+        return ["glas_file", "out_file", "wwf"]
 
     def outputs_present(self, **kwargs):
         # Check the output files are as expected - called with --check option
