@@ -20,7 +20,7 @@ class ProcessCmd(PBPTQProcessTool):
         base_gdf = geopandas.read_file(file)
         join_gdf = geopandas.read_file(wwf)
         
-        base_gdf = base_gdf.to_crs(4326)
+        base_gdf = base_gdf.to_crs("WGS 84", 4326)
         print("crs set")
            
         geostats = geopandas.sjoin(base_gdf, join_gdf, how='inner', op='within',lsuffix='lefty',rsuffix='righty')
