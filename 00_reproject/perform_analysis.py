@@ -19,9 +19,9 @@ class ProcessCmd(PBPTQProcessTool):
         basename = self.params['basename']
 
         
-        rsgislib.vectorutils.reproj_vec_lyr_gp(vec_file = file, vec_lyr = basename, 
-                    epsg_code = 4326, out_vec_file = out_file, out_vec_lyr = basename, 
-                    out_format = 'GPKG')
+        #rsgislib.vectorutils.reproj_vec_lyr_gp(vec_file = file, vec_lyr = basename, 
+                  #  epsg_code = 4326, out_vec_file = out_file, out_vec_lyr = basename, 
+                   # out_format = 'GPKG')
         
 
     def required_fields(self, **kwargs):
