@@ -37,7 +37,7 @@ class GenCmds(PBPTGenQProcessToolCmds):
         self.gen_command_info(
             glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/eco/wwf_grid/*.gpkg",
             out_csv_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/csvs",
-            out_fif_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs")
+            out_fig_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs")
 
         self.pop_params_db()
 
