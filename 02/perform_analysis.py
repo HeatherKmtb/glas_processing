@@ -34,7 +34,7 @@ class ProcessCmd(PBPTQProcessTool):
 
     def required_fields(self, **kwargs):
         # Return a list of the required fields which will be checked
-        return ["glas_file", "out_file", "wwf"]
+        return ["glas_file", "out_dir", "basename"]
 
     def outputs_present(self, **kwargs):
         # Check the output files are as expected - called with --check option
