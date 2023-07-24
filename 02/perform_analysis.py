@@ -18,17 +18,17 @@ class ProcessCmd(PBPTQProcessTool):
         out_dir = self.params['out_dir']
         basename = self.params["basename"]
         
-        #colNms=['i_h100','i_cd','doy','i_wflen','i_acqdate','b1','vcf','ECO_NAME_lefty','ECO_ID_lefty','BIOME_lefty','geometry']               
+        colNms=['i_h100','i_cd','doy','i_wflen','i_acqdate','b1','vcf','ECO_NAME_lefty','ECO_ID_lefty','BIOME_lefty','geometry']               
         
         gdf = geopandas.read_file(file)
-        gdf2 = gdf.astype({'ECO_ID':'int32'})
-        ecoNames = list(np.unique(gdf2['ECO_ID']))#get list of unique ecoregions    
+        gdf2 = gdf.astype({'ECO_ID_lefty':'int32'})
+        ecoNames = list(np.unique(gdf2['ECO_ID_lefty']))#get list of unique ecoregions    
         
         for eco in ecoNames:
             #create new df with just columns I want
             #gdf3 = geopandas.GeoDataFrame(gdf2, columns=colNms)
             ID = str(eco)
-            df_eco = gdf2.loc[gdf2['ECO_ID']==eco, colNms]
+            df_eco = gdf2.loc[gdf2['ECO_ID_lefty']==eco, colNms]
             df_eco.to_file(out_dir + '/{}_eco_{}.gpkg'.format(basename, ID))    
         
 
