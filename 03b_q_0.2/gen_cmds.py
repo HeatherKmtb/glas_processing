@@ -28,7 +28,7 @@ class GenCmds(PBPTGenQProcessToolCmds):
                 c_dict = dict()
                 c_dict['glas_file'] = glas_file
                 c_dict['out_csv_file'] = out_csv_file
-                c_dict['out_fig_dir'] = "/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs/"
+                c_dict['out_fig_dir'] = "/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs/0.2/"
                 c_dict['basename'] = basename
                 self.params.append(c_dict)
 
@@ -37,8 +37,8 @@ class GenCmds(PBPTGenQProcessToolCmds):
         # (e.g., input / output directories)
         self.gen_command_info(
             glas_tiles="/bigdata/cci_biomass_data/WCM/1_deg/eco/wwf_grid/*.gpkg",
-            out_csv_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/csvs",
-            out_fig_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs")
+            out_csv_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/csvs/0.2",
+            out_fig_dir="/bigdata/cci_biomass_data/WCM/1_deg/eco/results_0723/figs/0.2")
 
         self.pop_params_db()
 
