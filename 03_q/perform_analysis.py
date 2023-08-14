@@ -59,11 +59,11 @@ class ProcessCmd(PBPTQProcessTool):
         meancd = np.mean(y)
         maxh = np.max(x)
         
-        resultsa = resultsa._append({'Grid': name, 'eco':eco, 'qout_gedi': qout, 
-                                    'deg_free_g': footprints, 
-                                    'mse_g': mse,
-                                    'mean_h_g': meanh, 'mean_cd_g': meancd, 
-                                    'max_h_g': maxh}, 
+        resultsa = resultsa._append({'Grid': name, 'eco':eco, 'qout_glas': qout, 
+                                    'deg_free_i': footprints, 
+                                    'mse_i': mse,
+                                    'mean_h_i': meanh, 'mean_cd_i': meancd, 
+                                    'max_h_i': maxh}, 
                                     ignore_index=True)
 
         resultsa.to_csv(out_csv_file)

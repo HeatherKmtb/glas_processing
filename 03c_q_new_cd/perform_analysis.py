@@ -42,7 +42,7 @@ class ProcessCmd(PBPTQProcessTool):
         
         cd = final['i_cd'].to_numpy()
         f=1.5
-        f_old = 1
+        f_old = 2
         stepone = f_old*(1-cd)
         steptwo = cd + f
         stepthree = steptwo/stepone
